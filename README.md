@@ -1,4 +1,4 @@
-# Coach mental badminton — étape 1 : mode match hors ligne (v0.1.0)
+# Coach mental badminton — v0.2.0 (étapes 1 et 2)
 
 ## Contenu
 - Bouton **URGENCE** : routine guidée de 30 s (souffle 2 × 4 s/6 s, relâchement, cible, phrase-clé).
@@ -7,7 +7,20 @@
 - **Diagnostic** : état technique, mesures de vitesse, journal d'erreurs (remplace l'inspecteur Safari).
 - Fonctionne hors ligne après la première ouverture.
 
-## Mise en ligne (une seule fois, environ 10 min, depuis un ordinateur)
+## Nouveautés v0.2.0 (étape 2)
+- **Check-in** quotidien : stress, énergie, humeur, tension (0-10), sommeil, événement clé, note libre. Étiquettes détectées automatiquement dans la note, corrigeables.
+- **Accueil** : état du jour (écart à ta moyenne sur 28 jours dès 7 check-ins), série de jours, compte à rebours du prochain tournoi, rappel de sauvegarde hebdomadaire.
+- **Journal de match** : contexte, stress et objectif avant le match, score vérifié (21 points, 2 d'écart, max 30), points décisifs (score, gagné/perdu, type), débrief en 3 temps.
+- **Tournois** : calendrier avec importance et disciplines.
+- **Sauvegarde** : export en fichier JSON (Enregistrer dans Fichiers), restauration.
+
+## Mettre à jour le site avec une nouvelle version
+1. Décompresse le nouveau `coach-mental.zip`.
+2. Sur la page de ton dépôt GitHub : **Add file**, puis **Upload files**.
+3. Glisse **le contenu** du dossier décompressé (dossiers compris) dans la zone. Les fichiers existants sont remplacés. Puis **Commit changes**.
+4. Attends 2 minutes, ouvre l'app sur l'iPhone, touche **Mettre à jour** dans la bannière (si elle n'apparaît pas : ferme l'app complètement et rouvre-la, jusqu'à 2 fois). Vérifie dans Diagnostic que la version est 0.2.0.
+
+## Mise en ligne initiale (une seule fois, environ 10 min, depuis un ordinateur)
 1. Décompresse `coach-mental.zip`.
 2. Sur github.com : bouton **+** en haut à droite, puis **New repository**.
    Nom : `coach-mental`. Visibilité : **Public** (obligatoire pour GitHub Pages gratuit ; le dépôt ne contient ni données ni clé). Ne coche rien d'autre, puis **Create repository**.
@@ -39,6 +52,19 @@ Fais-les dans l'ordre. Note ✅ ou ❌ pour chacun.
 | 9 | Réglages : mets 3 cycles, **Enregistrer**, ferme et rouvre l'app | La valeur 3 est conservée, la routine dure 40 s |
 
 **En cas d'échec** : Diagnostic, **Copier tout**, puis colle-moi le texte avec le numéro du test.
+
+## Tests de l'étape 2
+| # | Test | Réussi si |
+|---|---|---|
+| 10 | Accueil, **Faire mon check-in**. Mets le stress à 8, écris dans la note « mal dormi, peur de rater au tournoi » | Les étiquettes Sommeil, Peur de l'erreur et Enjeu s'allument toutes seules |
+| 11 | **Enregistrer** | Retour à l'accueil, carte « Aujourd'hui » avec stress 8, « Série : 1 j » |
+| 12 | Ferme l'app complètement, rouvre-la | Le check-in est toujours là |
+| 13 | **Tournois**, ajoute ton prochain tournoi | Il apparaît sur l'accueil avec « J-x » correct |
+| 14 | **Journal**, **Nouveau match** : saisis 21-18, 19-21, 25-24 | Message « set 3 impossible ». Corrige en 24-22 : « victoire » |
+| 15 | Ajoute un point décisif (19-20, Perdu, Faute filet), remplis le débrief, **Enregistrer** | Le match apparaît dans la liste avec « V » |
+| 16 | **Sauvegarde**, **Préparer**, **Enregistrer le fichier**, puis **Enregistrer dans Fichiers** (iCloud Drive) | Le fichier `coach-sauvegarde-AAAA-MM-JJ.json` est dans l'app Fichiers ; la bannière de sauvegarde disparaît de l'accueil |
+| 17 | **Sauvegarde**, **Choisir un fichier**, prends ce fichier | Le résumé indique 1 check-in et 1 match (ne touche pas « Remplacer » sauf pour tester : ça remplace tout) |
+| 18 | Mode avion, ouvre Journal et Check-in | Tout fonctionne |
 
 ## Limites connues
 - Pas de vibration : iOS ne l'autorise pas pour les web apps.

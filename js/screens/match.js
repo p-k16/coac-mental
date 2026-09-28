@@ -31,8 +31,7 @@ export function render(root) {
         h('strong', null, `${s.betweenSetsSec} s`), h('span', null, 'Entre sets'))),
     timerBox,
     h('label', { class: 'switch', for: 'awake' }, awake, h('span', null, 'Garder l’écran allumé'), lockState),
-    h('p', { class: 'muted small' },
-      'Les points décisifs se saisissent après le match, dans le Journal (étape 2).')
+    h('a', { class: 'btn', href: '#/journal?id=' }, 'Match terminé : ouvrir le journal')
   ));
 
   if (s.keepAwakeInMatch) wakelock.acquire('match');

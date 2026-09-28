@@ -46,3 +46,4 @@ export function uuid() {
   const x = [...b].map((v) => v.toString(16).padStart(2, '0')).join('');
   return `${x.slice(0, 8)}-${x.slice(8, 12)}-${x.slice(12, 16)}-${x.slice(16, 20)}-${x.slice(20)}`;
 }
+
